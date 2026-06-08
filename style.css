@@ -1,0 +1,83 @@
+body{
+
+    font-family:Arial;
+
+    background:#f4f6f9;
+
+    margin:0;
+}
+
+.container{
+
+    width:1000px;
+
+    margin:auto;
+
+    padding:20px;
+}
+
+.card{
+
+    background:white;
+
+    padding:20px;
+
+    margin:10px 0;
+
+    border-radius:8px;
+
+    box-shadow:
+    0 2px 5px rgba(0,0,0,.1);
+}
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-bottom:10px;
+}
+
+button{
+
+    background:#007bff;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    cursor:pointer;
+}
+
+.good{
+
+    background:#d4edda;
+
+    border:
+    2px solid green;
+}
+
+.bad{
+
+    background:#f8d7da;
+
+    border:
+    2px solid red;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+th,td{
+
+    border:1px solid #ddd;
+
+    padding:10px;
+}

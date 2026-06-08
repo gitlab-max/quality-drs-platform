@@ -1,0 +1,10 @@
+{
+    "prediction": "PASS",
+    "drs_score": 100.0,
+    "assessment": {
+        "hjk": {
+            "status": "OPTIMAL",
+            "value": 23.0
+        }
+    }
+}

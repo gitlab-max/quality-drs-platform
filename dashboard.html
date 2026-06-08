@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>DRS Platform</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>DRS Quality Platform</h1>
+
+<div class="card">
+
+<h2>Create Project</h2>
+
+<form method="POST"
+action="/create_project">
+
+<input
+name="project_name"
+placeholder="Project Name"
+required>
+
+<select name="mode">
+
+<option value="csv">
+CSV Project
+</option>
+
+<option value="manual">
+Manual Project
+</option>
+
+</select>
+
+<br><br>
+
+<button>
+Create Project
+</button>
+
+</form>
+
+</div>
+
+<hr>
+
+<h2>Projects</h2>
+
+{% for p in projects %}
+
+<div class="card">
+
+<h3>
+{{ p['name'] }}
+</h3>
+
+<p>
+
+Mode:
+
+<b>
+{{ p['mode'] }}
+</b>
+
+</p>
+
+<a href="/project/{{ p['id'] }}">
+Open
+</a>
+
+|
+
+<a href="/parameters/{{ p['id'] }}">
+Parameters
+</a>
+
+|
+
+<a href="/history/{{ p['id'] }}">
+History
+</a>
+
+|
+
+<a
+href="/delete_project/{{ p['id'] }}"
+onclick="return confirm('Delete project?')">
+
+Delete
+
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

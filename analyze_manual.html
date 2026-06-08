@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Manual Analysis</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+<script src="{{ url_for(
+'static',
+filename='validation.js') }}">
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Analyze Sample</h1>
+
+<form
+method="POST"
+action="/evaluate/{{ project_id }}">
+
+{% for p in params %}
+
+<label>
+
+{{ p['name'] }}
+
+</label>
+
+<input
+type="number"
+step="any"
+
+name="{{ p['name'] }}"
+
+data-min="{{ p['min_value'] }}"
+data-max="{{ p['max_value'] }}"
+
+oninput="validateField(this)"
+
+required>
+
+{% endfor %}
+
+<button>
+Analyze Sample
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

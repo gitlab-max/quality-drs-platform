@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Parameters</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Parameter Editor</h1>
+
+<a href="/">Dashboard</a>
+
+<hr>
+
+<h2>Add Parameter</h2>
+
+<form method="POST"
+action="/add_parameter/{{ project_id }}">
+
+<input
+name="name"
+placeholder="Parameter Name"
+required>
+
+<input
+name="min"
+type="number"
+step="any"
+placeholder="Min Value"
+required>
+
+<input
+name="max"
+type="number"
+step="any"
+placeholder="Max Value"
+required>
+
+<button>Add Parameter</button>
+
+</form>
+
+<hr>
+
+<h2>Existing Parameters</h2>
+
+{% for p in params %}
+
+<div class="card">
+
+<form
+method="POST"
+action="/update_parameter/{{ p['id'] }}/{{ project_id }}">
+
+<input
+name="name"
+value="{{ p['name'] }}">
+
+<input
+name="min"
+value="{{ p['min_value'] }}">
+
+<input
+name="max"
+value="{{ p['max_value'] }}">
+
+<button>Update</button>
+
+<a href="/delete_parameter/{{ p['id'] }}/{{ project_id }}"
+onclick="return confirm('Delete parameter?')">
+
+Delete
+
+</a>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

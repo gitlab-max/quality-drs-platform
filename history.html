@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>History</title>
+
+<link rel="stylesheet"
+href="{{ url_for(
+'static',
+filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Sample History</h1>
+
+<a href="/">Dashboard</a>
+
+<hr>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Prediction</th>
+<th>DRS Score</th>
+<th>Used In DRS</th>
+<th>Date</th>
+
+</tr>
+
+{% for row in samples %}
+
+<tr>
+
+<td>{{ row['id'] }}</td>
+
+<td>{{ row['prediction'] }}</td>
+
+<td>{{ row['drs_score'] }}</td>
+
+<td>
+
+{% if row['used_for_drs']==1 %}
+
+✔
+
+{% else %}
+
+✖
+
+{% endif %}
+
+</td>
+
+<td>{{ row['created_at'] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Analyze Sample</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+<script
+src="{{ url_for('static',
+filename='validation.js') }}">
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+Analyze Sample
+
+</h1>
+
+<a href="/">
+Dashboard
+</a>
+
+<hr>
+
+<form
+method="POST"
+action="/evaluate/{{ project_id }}">
+
+{% for param in parameters %}
+
+<div class="card">
+
+<label>
+
+{{ param }}
+
+</label>
+
+<input
+type="number"
+step="any"
+name="{{ param }}"
+required>
+
+<p>
+
+Optimal:
+
+{{ drs[param]['optimal_min']|round(2) }}
+
+→
+
+{{ drs[param]['optimal_max']|round(2) }}
+
+</p>
+
+<p>
+
+Acceptable:
+
+{{ drs[param]['acceptable_min']|round(2) }}
+
+→
+
+{{ drs[param]['acceptable_max']|round(2) }}
+
+</p>
+
+</div>
+
+{% endfor %}
+
+<button>
+
+Evaluate Sample
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
